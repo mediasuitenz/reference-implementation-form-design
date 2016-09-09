@@ -1,0 +1,58 @@
+<h1>Select Box</h1>
+<br><br>
+<p>
+  A wrapper around <a href="https://github.com/thefrontside/emberx-select">https://github.com/thefrontside/emberx-select</a>.  Does not support the <b>multiple</b> option provided
+  by emberx-select at this time.
+</p>
+<p>
+  <table>
+    <tr>
+      <th>Paramater</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr><td>options</td><td>[string] or [Object]</td><td>List of options.  Either an array of strings, or array of objects - display text must be on the `name` key, e.g. <code>{id: 1, name: 'Parzival'}</code></td></tr>
+    <tr><td>value</td><td>any primitive</td><td>primitive matching the value of the selected item</td></tr>
+    <tr><td>label</td><td>string</td><td>Label</td></tr>
+    <tr><td>placeholderOptions</td><td>false or string</td><td>The initial 'non-selected' string of the drop-down</td></tr>
+    <tr><td>didChange</td><td>closure function (selected(object), component(object))</td><td>Fires when the drop-down value changes</td></tr>
+  </table>
+</p>
+
+<h3>Valid - single values (with didChange function)</h3>
+{{mediasuite-select-box
+  options=model.string.values
+  value=model.string.selected
+  label='Favourite Gunter:'
+  placeholderOption=false
+  didChange=(route-action 'didChange')
+}}
+<p>Selected: <b>{{model.string.selected}}</b></p>
+
+<pre>
+&#123;&#123;mediasuite-select-box
+  options=model.string.values
+  value=model.string.selected
+  label='Condition Group:'
+  placeholderOption=false
+  didChange=(route-action 'didChange')
+&#125;&#125;
+</pre>
+<br><br>
+<h3>Valid - Using Objects</h3>
+{{mediasuite-select-box
+  options=model.object.values
+  value=model.object.selected
+  label='Favourite Gunter:'
+  placeholderOption=false
+}}
+<p>Selected: <b>{{model.object.selected.id}}</b></p>
+
+<pre>
+&#123;&#123;mediasuite-select-box
+  options=model.object.values
+  value=model.object.selected
+  label='Favourite Gunter:'
+  placeholderOption=false
+&#125;&#125;
+</pre>
