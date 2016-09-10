@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return {
       hasTaste: false,
       errors: {
-        hasTaste: [{
+        confirm: [{
           message: 'This is not a valid selection'
         }]
       }
@@ -16,6 +16,7 @@ export default Ember.Route.extend({
     didEnjoy (isTrue) {
       if (isTrue) alert('Of course you did, it\'s awesome')
       else alert('GAME OVER!')
+      Ember.set(this, 'controller.model.hasTaste', isTrue)
     }
   }
 })

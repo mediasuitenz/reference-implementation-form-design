@@ -2,27 +2,23 @@ import Ember from 'ember'
 
 export default Ember.Route.extend({
   model () {
+    const options = [
+      {value: 1, checked: true, label: 'Parzival'},
+      {value: 2, checked: false, label: 'Art3mus'},
+      {value: 3, checked: false, label: 'Aech'},
+      {value: 4, checked: false, label: 'Shoto'},
+      {value: 5, checked: false, label: 'Daito', disabled: true}
+    ]
     return {
-      options: [
-        {name: 'pazival', value: 1, checked: true, label: 'Parzival'},
-        {name: 'art3mus', value: 2, checked: false, label: 'Art3mus'},
-        {name: 'aech', value: 3, checked: false, label: 'Aech'},
-        {name: 'shoto', value: 4, checked: false, label: 'Shoto'},
-        {name: 'Daito', value: 1, checked: false, label: 'Dioto', disabled: true}
-      ],
-      otheroptions: [
-        {name: 'pazival', value: 1, checked: true, label: 'Parzival'},
-        {name: 'art3mus', value: 2, checked: false, label: 'Art3mus'},
-        {name: 'aech', value: 3, checked: false, label: 'Aech'},
-        {name: 'shoto', value: 4, checked: false, label: 'Shoto'},
-        {name: 'Daito', value: 1, checked: false, label: 'Dioto', disabled: true}
-      ],
-      errors: [{message: 'They\'re all great'}]
+      options: options,
+      errors: [{message: 'They\'re all great'}],
+      selected: options[1]
     }
   },
   actions: {
     favouriteCharacterChanged (value) {
-      alert(`Gunter ${value} selected`)
+      alert(`Gunter ${value.label} selected`)
+      Ember.set(this, 'controller.model.selected', value)
     }
   }
 })
