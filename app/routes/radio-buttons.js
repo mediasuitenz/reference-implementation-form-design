@@ -3,11 +3,11 @@ import Ember from 'ember'
 export default Ember.Route.extend({
   model () {
     const options = [
-      {value: 1, checked: true, label: 'Parzival'},
-      {value: 2, checked: false, label: 'Art3mus'},
-      {value: 3, checked: false, label: 'Aech'},
-      {value: 4, checked: false, label: 'Shoto'},
-      {value: 5, checked: false, label: 'Daito', disabled: true}
+      {value: 1, label: 'Parzival'},
+      {value: 2, label: 'Art3mus'},
+      {value: 3, label: 'Aech'},
+      {value: 4, label: 'Shoto'},
+      {value: 5, label: 'Daito', disabled: true}
     ]
     return {
       options: options,
