@@ -12,6 +12,7 @@ Router.map(function () {
   this.route('select-box')
   this.route('radio-buttons-boolean')
   this.route('radio-buttons')
+  this.route('radio-button')
 })
 
 export default Router

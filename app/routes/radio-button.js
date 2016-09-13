@@ -9,16 +9,15 @@ export default Ember.Route.extend({
       {value: 4, label: 'Shoto'},
       {value: 5, label: 'Daito', disabled: true}
     ]
+    
     return {
-      options: options,
-      errors: [{message: 'They\'re all great'}],
-      selected: options[1]
+      options,
+      selected: undefined
     }
   },
   actions: {
     favouriteCharacterChanged (value) {
-      alert(`Gunter ${value.label} selected`)
-      Ember.set(this, 'controller.model.selected', value)
+      //alert(`Gunter ${value} selected`)
     }
   }
 })

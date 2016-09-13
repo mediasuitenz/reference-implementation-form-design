@@ -1,6 +1,6 @@
 <h1>Boolean Radio Buttons</h1>
 <br><br>
-<p>A set of radio buttons when you want a boolean true/false or yes/no response.</p>
+<p>A set of radio buttons when you want a boolean true/false response.  A convenience method for {{#link-to 'radio-button'}}mediasuite-radio-button{{/link-to}}.</p>
 <p>
   <table>
     <tr>
@@ -8,22 +8,21 @@
       <th>Type</th>
       <th>Description</th>
     </tr>
-    <tr><td>value</td><td>string</td><td>The value of the input (even 'number' type returns a string)</td></tr>
     <tr><td>groupLabel</td><td>string</td><td>Label</td></tr>
-    <tr><td>required</td> <td>true, false(default)</td><td>Indicates whether this is a required field - adds an '*' to the UI and marks the input element as 'required'</td></tr>
-    <tr><td>disabled</td> <td>true, false(default)</td><td>Indicates whether the field is disabled</td></tr>
-    <tr><td>class</td> <td>string</td><td>Element css classes</td></tr>
+    <tr><td>value</td> <td>boolean</td><td>Either true, false or null.  Passing in null will result in neither of the radio-buttons being selected</td></tr>
+    <tr><td>name</td> <td>string</td><td>By default the html attribute 'name' will be the same as the Ember supplied Id.  This allows you to set your own.</td></tr>
     <tr><td>errors</td> <td>[object]</td><td>Array of error objects.  Each object must contain a 'message' key to be displayed</td></tr>
+    <tr><td>update</td> <td>function (value(object))</td><td>Function called when a radio-button is selected. </td></tr>
+    <tr><td>required</td> <td>boolean (default false)</td><td>Is the element required</td></tr>
   </table>
 </p>
 
-<h3>Valid</h3>
+<h3>Standard example</h3>
 
 {{mediasuite-radio-buttons-boolean
-  name="is-continuous"
-  class='element-group-wrap'
+  name="setone"
   value=model.hasTaste
-  onChange=(route-action 'didEnjoy')
+  update=(route-action 'didEnjoy')
   groupLabel='Did you enjoy Ready Player One?'
   required=true
   errors=layout.errors.hasTaste
@@ -31,10 +30,9 @@
 
 <pre>
 &#123;&#123;mediasuite-radio-buttons-boolean
-  name="is-continuous"
-  class='element-group-wrap'
+  name="setone"
   value=model.hasTaste
-  onChange=(route-action 'didEnjoy')
+  update=(route-action 'didEnjoy')
   groupLabel='Did you enjoy Ready Player One?'
   required=true
   errors=layout.errors.hasTaste
@@ -43,26 +41,22 @@
 
 <br><br>
 
-<h3>Invalid</h3>
+<h3>Example, with error message and no default selection</h3>
 
 {{mediasuite-radio-buttons-boolean
-  name="is-continuous"
-  class='element-group-wrap'
-  value=model.hasTaste
-  onChange=(route-action 'didEnjoy')
-  groupLabel='Did you enjoy Ready Player One?'
+  value=model.confirm
+  update=(action (mut model.confirm))
+  groupLabel='Did you really enjoy Ready Player One?'
   required=true
-  errors=model.errors.hasTaste
+  errors=model.errors.confirm
 }}
 
 <pre>
 &#123;&#123;mediasuite-radio-buttons-boolean
-  name="is-continuous"
-  class='element-group-wrap'
-  value=model.hasTaste
-  onChange=(route-action 'didEnjoy')
-  groupLabel='Did you enjoy Ready Player One?'
+  value=model.confirm
+  update=(action (mut model.confirm))
+  groupLabel='Did you really enjoy Ready Player One?'
   required=true
-  errors=model.errors.hasTaste
+  errors=model.errors.confirm
 &#125;&#125;
 </pre>
