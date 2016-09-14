@@ -1,4 +1,5 @@
 import Ember from 'ember'
+const { set } = Ember
 
 export default Ember.Route.extend({
   model () {
@@ -6,19 +7,19 @@ export default Ember.Route.extend({
 
     return {
       string: {
-        values: ['Parzival', 'Art3mus', 'Aech', 'Shoto'],
-        selected: 'Aech'
+        values: ['Parzival', 'Art3mus', 'Aech', 'Shoto']
       },
       object: {
         values: objValues,
-        selected: objValues[2]
+        selected: [objValues[2]]
       }
     }
   },
 
   actions: {
-    didChange (selection, component) {
+    didChange (selection) {
       alert(selection)
+      set(this, 'controller.model.string.selected', selection)
     }
   }
 
