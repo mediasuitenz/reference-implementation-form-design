@@ -1,3 +1,5 @@
+# THIS IS DEPRECATED AND WILL BE DELETED OVER THE NEXT WEEK
+
 # Reference-implementation-form-design
 
 This project contains reference implementations of the form elements provided by https://github.com/mediasuitenz/mediasuite-form-elements Ember add-on.
