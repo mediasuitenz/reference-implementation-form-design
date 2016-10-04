@@ -13,6 +13,9 @@ Router.map(function () {
   this.route('radio-buttons-boolean')
   this.route('radio-buttons')
   this.route('radio-button')
+  this.route('date-picker')
+  this.route('checkbox')
+  this.route('checkboxes')
 })
 
 export default Router
